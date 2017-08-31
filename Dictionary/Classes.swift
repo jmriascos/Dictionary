@@ -64,9 +64,14 @@ class TableViewController: UITableViewController {
             }
         }
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+        super.viewWillAppear(true)
         switch Language.language {
         case "Spanish":
             term1Label.text = "Clase"
